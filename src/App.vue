@@ -19,5 +19,7 @@ export default{
 </template>
 
 <style>
-
+ body{
+  
+ }
 </style>
