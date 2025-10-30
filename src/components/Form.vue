@@ -33,8 +33,8 @@
         </div>
 
         <div class="container footer-container">
-          <button type="button" class="cancelbtn" @click="resetForm">Cancelar</button>
-          <span class="psw">Olvidaste <a href="#">tu contraseña?</a></span>
+          <button type="button" class="cancelbtn" @click="resetForm">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
       </form>
     </div>
