@@ -3,24 +3,37 @@
     <div class="login-card">
       <form @submit.prevent="handleSubmit">
         <div class="imgcontainer">
-          <img src="../assets/loginIcon.png" alt="Avatar" class="avatar"/>
+          <img src="@/assets/loginIcon.png" alt="Mi imagen" style="width: 150px; height: auto;" />
         </div>
 
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="email"><b>Email</b></label>
+          <input 
+            type="text" 
+            v-model="email" 
+            placeholder="Enter Email" 
+            name="email" 
+            required
+          >
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input 
+            type="password" 
+            v-model="password" 
+            placeholder="Enter Password" 
+            name="psw" 
+            required
+          >
 
           <button type="submit">Login</button>
+
           <label class="remember">
             <input type="checkbox" checked="checked" name="remember"> Remember me
           </label>
         </div>
 
         <div class="container footer-container">
-          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="button" class="cancelbtn" @click="resetForm">Cancel</button>
           <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
       </form>
@@ -29,13 +42,56 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
+
 export default {
   name: "FormVue",
+  data() {
+    return {
+      email: "",
+      password: ""
+    }
+  },
   methods: {
     handleSubmit() {
-      // Solo para evitar el refresh de la página
-      // No es funcional, solo visual
-      console.log('Login submitted (non-functional)');
+      // Expresión regular para validar correo
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Validación del email
+      if (!emailRegex.test(this.email)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo inválido',
+          text: 'Por favor ingresa un correo electrónico válido.',
+          confirmButtonColor: '#04AA6D'
+        });
+        return;
+      }
+
+      // Validación de contraseña
+      if (this.password.length < 6) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Contraseña incorrecta',
+          text: 'La contraseña debe tener al menos 6 caracteres.',
+          confirmButtonColor: '#04AA6D'
+        });
+        return;
+      }
+
+      // Si todo está correcto
+      Swal.fire({
+        icon: 'success',
+        title: 'Inicio de sesión exitoso',
+        text: '¡Bienvenida!',
+        confirmButtonColor: '#04AA6D'
+      }).then(() => {
+        this.$router.push('/vista1');
+      });
+    },
+    resetForm() {
+      this.email = "";
+      this.password = "";
     }
   }
 }
@@ -170,7 +226,7 @@ span.psw {
   color: #555;
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/* Responsive adjustments */
 @media screen and (max-width: 480px) {
   .card-container {
     padding: 10px;
@@ -196,7 +252,6 @@ span.psw {
   }
 }
 
-/* Responsive design */
 @media screen and (max-width: 300px) {
   span.psw {
     display: block;
@@ -208,4 +263,3 @@ span.psw {
   }
 }
 </style>
-
