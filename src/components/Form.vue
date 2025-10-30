@@ -8,33 +8,33 @@
 
         <div class="container">
           <label for="email"><b>Email</b></label>
-          <input 
-            type="text" 
-            v-model="email" 
-            placeholder="Enter Email" 
-            name="email" 
+          <input
+            type="text"
+            v-model="email"
+            placeholder="Enter Email"
+            name="email"
             required
           >
 
           <label for="psw"><b>Password</b></label>
-          <input 
-            type="password" 
-            v-model="password" 
-            placeholder="Enter Password" 
-            name="psw" 
+          <input
+            type="password"
+            v-model="password"
+            placeholder="Enter Password"
+            name="psw"
             required
           >
 
           <button type="submit">Login</button>
 
           <label class="remember">
-            <input type="checkbox" checked="checked" name="remember"> Remember me
+            <input type="checkbox" checked="checked" name="remember"> recuerdame
           </label>
         </div>
 
         <div class="container footer-container">
-          <button type="button" class="cancelbtn" @click="resetForm">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
+          <button type="button" class="cancelbtn" @click="resetForm">Cancelar</button>
+          <span class="psw">Olvidaste <a href="#">tu contraseña?</a></span>
         </div>
       </form>
     </div>
