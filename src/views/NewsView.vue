@@ -2,7 +2,7 @@
   import Navbar from '@/components/Navbar.vue';
 
   export default {
-    name: "AbouttVue",
+    name: "NewsView",
 
     components:{
     Navbar

@@ -95,7 +95,7 @@ export default {
         text: '¡Bienvenida!',
         confirmButtonColor: '#04AA6D'
       }).then(() => {
-        this.$router.push('/vista1');
+        this.$router.push('/home');
       });
     },
     resetForm() {
@@ -113,6 +113,7 @@ export default {
   align-items: center;
   min-height: 400px;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .login-card {
@@ -279,4 +280,5 @@ span.psw {
     width: 100%;
   }
 }
+
 </style>

@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Vista1 from '../views/Vista1.vue' // 👈 Importamos tu vista
+import Login from '@/components/Login.vue'
+import ContactView from '@/views/ContactView.vue'
+import NewsView from '@/views/NewsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
+     {
       path: '/',
+      name: 'login',
+      component: Login, // 👈 Login en la ruta principal
+    },
+    {
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
@@ -16,9 +23,14 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/vista1', // 👈 Nueva ruta
-      name: 'Vista1',
-      component: Vista1
+      path: '/news',
+      name: 'news',
+      component: NewsView
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: ContactView
     }
   ],
 })

@@ -1,16 +1,21 @@
 <script>
+import { useRouter } from 'vue-router';
+const router = useRouter()
 export default {
   name: "NavVue"
 }
 </script>
 
 <template>
- <ul>
-  <li><a href="default.asp">Home</a></li>
-  <li><a href="news.asp">News</a></li>
-  <li><a href="contact.asp">Contact</a></li>
-  <li><a href="about.asp">About</a></li>
-</ul>
+  <div>
+  <ul>
+    <li><router-link to="/home">Inicio</router-link></li>
+    <li><router-link to="/news">Noticias</router-link></li>
+    <li><router-link to="/contact">Contacto</router-link></li>
+    <li><router-link to="/about">Acerca de</router-link></li>
+  </ul>
+  <router-view></router-view>
+</div>
 </template>
 
 <style>
