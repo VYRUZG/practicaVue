@@ -1,25 +1,21 @@
 <script>
 import Navbar from './components/Navbar.vue';
-import Formulario from './components/Form.vue';
-export default{
-  components: {
-    Navbar,
-    Formulario
-  }
+
+export default {
+  components: { Navbar }
 }
 </script>
 
 <template>
   <div id="app">
-    <navbar />
-    <div style="margin-top: 50px;">
-      <Formulario />
-    </div>
+    <Navbar />
+    <router-view /> <!-- Aquí se cargan HomeView y Vista1 -->
   </div>
 </template>
 
 <style>
- body{
-  
- }
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
 </style>
