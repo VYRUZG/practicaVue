@@ -1,26 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Vista1 from '../views/Vista1.vue' // 👈 Importamos tu vista
+import FormVue from '@/components/Form.vue'
+import Vista1 from '@/views/Vista1.vue'
+import Vista2 from '@/views/Vista2.vue'
+
+const routes = [
+  { path: '/', component: FormVue },
+  { path: '/vista1', component: Vista1 },
+  { path: '/vista2', component: Vista2 }
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-    },
-    {
-      path: '/vista1', // 👈 Nueva ruta
-      name: 'Vista1',
-      component: Vista1
-    }
-  ],
+  history: createWebHistory(),
+  routes
 })
 
 export default router

@@ -81,13 +81,13 @@ export default {
 
       // Si todo está correcto
       Swal.fire({
-        icon: 'success',
-        title: 'Inicio de sesión exitoso',
-        text: '¡Bienvenida!',
-        confirmButtonColor: '#04AA6D'
-      }).then(() => {
-        this.$router.push('/vista1');
-      });
+  icon: 'success',
+  title: 'Inicio de sesión exitoso',
+  text: '¡Bienvenida!',
+  confirmButtonColor: '#04AA6D'
+}).then(() => {
+  this.$router.push('/vista1') // Esto ya te lleva a Vista1
+})
     },
     resetForm() {
       this.email = "";
@@ -96,6 +96,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 .card-container {

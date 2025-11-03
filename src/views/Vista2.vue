@@ -2,11 +2,11 @@
   <div>
     <Navbar />
     <EditableTable
-      title="Lista de Productos"
+      title="Lista de Estudiantes"
       :columns="[
-        { label: 'Producto', field: 'producto' },
-        { label: 'Precio', field: 'precio' },
-        { label: 'Stock', field: 'stock' }
+        { label: 'Nombre', field: 'nombre' },
+        { label: 'Edad', field: 'edad' },
+        { label: 'Carrera', field: 'carrera' }
       ]"
     />
   </div>
@@ -17,7 +17,7 @@ import Navbar from '@/components/Navbar.vue'
 import EditableTable from '@/components/EditableTable.vue'
 
 export default {
-  name: 'Vista1',
+  name: 'Vista2',
   components: { Navbar, EditableTable }
 }
 </script>
